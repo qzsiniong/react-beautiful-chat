@@ -1,6 +1,6 @@
 {
   "name": "qzsiniong-react-beautiful-chat",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple and beautiful React chat component backend agnostic and with Emoji and File support.",
   "main": "lib/index.js",
   "module": "es/index.js",
