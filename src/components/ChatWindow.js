@@ -26,17 +26,24 @@ class ChatWindow extends Component {
     ]
     return (
       <div className={classList.join(' ')}>
-        {/* <Header
-          teamName={this.props.agentProfile.teamName}
-          imageUrl={this.props.agentProfile.imageUrl}
-          onClose={this.props.onClose}
-        /> */}
+        {
+          this.props.agentProfile && 
+          <Header
+            teamName={this.props.agentProfile.teamName}
+            imageUrl={this.props.agentProfile.imageUrl}
+            onClose={this.props.onClose}
+          />
+        }
+        
         <MessageList
           messages={messageList}
-          imageUrl={this.props.agentProfile.imageUrl}
+          imageUrl={this.props.agentProfile?this.props.agentProfile.imageUrl:''}
           onDelete={this.props.onDelete}
+          more={this.props.more}
+          moreEl={this.props.moreEl}
         />
         <UserInput
+          placeholder={this.props.userInputPlaceholder}
           showEmoji={this.props.showEmoji}
           onSubmit={this.onUserInputSubmit}
           showFile={this.props.showFile}

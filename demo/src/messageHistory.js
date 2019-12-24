@@ -1,3 +1,5 @@
+import React, { Component } from 'react'
+
 export default [
   { id: 1, type: 'text', author: "me", data: { text: "Why don't they have salsa on the table?" } },
   { id: 2, type: 'text', author: "them", data: { text: "What do you need salsa for?" } },
@@ -17,4 +19,6 @@ export default [
   { id: 16, type: 'file', author: "me", data: { text: "What about this one instead?? ", file: { name: 'song.mp3', url: '#' } } },
   { id: 17, type: 'text', author: "them", data: { text: "Open up the dev tools and go to the console section to check some cool events attached to the component", meta: 'Read' } },
   { id: 18, type: 'emoji', author: "me", data: { emoji: "😋" } },
+  { id: 19, type: 'component', author: "me", data: { component: <div>test</div> } },
+  { id: 19, type: 'component', author: "them", data: { component: <div style={{color: 'red'}}>test</div> } },
 ]

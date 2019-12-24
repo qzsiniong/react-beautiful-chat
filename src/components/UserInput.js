@@ -60,6 +60,7 @@ class UserInput extends Component {
         this.userInput.innerHTML = ''
       }
     }
+    this.userInput.blur();
   }
 
   _handleEmojiPicked(emoji) {
@@ -76,7 +77,7 @@ class UserInput extends Component {
 
   render() {
     return (
-      <div>
+      <div className={this.props.className}>
         {
           this.state.file &&
           <div className='file-container' >
@@ -85,7 +86,7 @@ class UserInput extends Component {
             <span className='delete-file-message' onClick={() => this.setState({ file: null })} ><img src={closeIcon} alt='close icon' height={10} title='Remove the file' /></span>
           </div>
         }
-        <form className={`sc-user-input ${(this.state.inputActive ? 'active' : '')}`}>
+        <div className={`sc-user-input ${(this.state.inputActive ? 'active' : '')}`}>
           <div
             role="button"
             tabIndex="0"
@@ -95,7 +96,7 @@ class UserInput extends Component {
             onKeyDown={this.handleKey}
             onKeyPress={this.handleKeyPress}
             contentEditable="true"
-            placeholder="Write a reply..."
+            placeholder={this.props.placeholder}
             className="sc-user-input--text"
           >
           </div>
@@ -113,7 +114,7 @@ class UserInput extends Component {
               <SendIcon onClick={this._submitText.bind(this)} />
             </div>
           </div>
-        </form>
+        </div>
       </div>
     )
   }
@@ -127,8 +128,8 @@ UserInput.propTypes = {
 }
 
 UserInput.defaultProps = {
-  showEmoji: true,
-  showFile: true
+  showEmoji: false,
+  showFile: false
 }
 
 export default UserInput

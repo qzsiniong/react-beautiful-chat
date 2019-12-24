@@ -58,7 +58,10 @@ var Launcher = function (_Component) {
         showFile: this.props.showFile,
         onKeyPress: this.props.onKeyPress,
         onKeyPressDebounce: this.props.onKeyPressDebounce,
-        onDelete: this.props.onDelete
+        onDelete: this.props.onDelete,
+        more: this.props.more,
+        moreEl: this.props.moreEl,
+        userInputPlaceholder: this.props.userInputPlaceholder
       })
     );
   };

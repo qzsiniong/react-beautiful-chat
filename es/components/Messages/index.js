@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import TextMessage from './TextMessage';
 import EmojiMessage from './EmojiMessage';
 import FileMessage from './FileMessage';
+import ReactComponent from './ReactComponent';
 import chatIconUrl from './../../assets/chat-icon.svg';
 
 var Message = function (_Component) {
@@ -27,6 +28,8 @@ var Message = function (_Component) {
         return React.createElement(EmojiMessage, this.props.message);
       case 'file':
         return React.createElement(FileMessage, { onDelete: this.props.onDelete, message: this.props.message });
+      case 'component':
+        return React.createElement(ReactComponent, { onDelete: this.props.onDelete, message: this.props.message });
     }
   };
 
@@ -38,9 +41,6 @@ var Message = function (_Component) {
       React.createElement(
         'div',
         { className: contentClassList.join(" ") },
-        React.createElement('div', { className: 'sc-message--avatar', style: {
-            backgroundImage: 'url(' + chatIconUrl + ')'
-          } }),
         this._renderMessageOfType(this.props.message.type)
       )
     );

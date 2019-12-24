@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TextMessage from './TextMessage'
 import EmojiMessage from './EmojiMessage'
 import FileMessage from './FileMessage'
+import ReactComponent from './ReactComponent'
 import chatIconUrl from './../../assets/chat-icon.svg'
 
 
@@ -15,6 +16,8 @@ class Message extends Component {
         return <EmojiMessage {...this.props.message} />
       case 'file':
         return <FileMessage onDelete={this.props.onDelete} message={this.props.message} />
+      case 'component':
+        return <ReactComponent onDelete={this.props.onDelete} message={this.props.message} />
     }
   }
 
@@ -26,12 +29,13 @@ class Message extends Component {
     return (
       <div className="sc-message">
         <div className={contentClassList.join(" ")}>
-          <div className="sc-message--avatar" style={{
+          {/* <div className="sc-message--avatar" style={{
             backgroundImage: `url(${chatIconUrl})`
-          }}></div>
+          }}></div> */}
           {this._renderMessageOfType(this.props.message.type)}
         </div>
-      </div>)
+      </div>
+      )
   }
 }
 

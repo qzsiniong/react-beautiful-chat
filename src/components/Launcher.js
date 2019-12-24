@@ -48,6 +48,9 @@ class Launcher extends Component {
           onKeyPress={this.props.onKeyPress}
           onKeyPressDebounce={this.props.onKeyPressDebounce}
           onDelete={this.props.onDelete}
+          more={this.props.more}
+          moreEl={this.props.moreEl}
+          userInputPlaceholder={this.props.userInputPlaceholder}
         />
       </div>
     );

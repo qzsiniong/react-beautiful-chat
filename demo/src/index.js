@@ -77,9 +77,11 @@ class Demo extends Component {
         handleClick={this._handleClick.bind(this)}
         isOpen={this.state.isOpen}
         onKeyPress={this.onKeyPress}
-        onDelete={this.onDelete}
-        showEmoji
-        showFile
+        // onDelete={this.onDelete}
+        showEmoji={false}
+        showFile={false}
+        more={true}
+        moreEl={<div>more</div>}
       />
       <div style={{height: 200}} />
       <Footer />

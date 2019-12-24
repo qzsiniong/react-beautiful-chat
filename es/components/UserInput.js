@@ -71,6 +71,7 @@ var UserInput = function (_Component) {
         this.userInput.innerHTML = '';
       }
     }
+    this.userInput.blur();
   };
 
   UserInput.prototype._handleEmojiPicked = function _handleEmojiPicked(emoji) {
@@ -90,7 +91,7 @@ var UserInput = function (_Component) {
 
     return React.createElement(
       'div',
-      null,
+      { className: this.props.className },
       this.state.file && React.createElement(
         'div',
         { className: 'file-container' },
@@ -109,7 +110,7 @@ var UserInput = function (_Component) {
         )
       ),
       React.createElement(
-        'form',
+        'div',
         { className: 'sc-user-input ' + (this.state.inputActive ? 'active' : '') },
         React.createElement('div', {
           role: 'button',
@@ -126,7 +127,7 @@ var UserInput = function (_Component) {
           onKeyDown: this.handleKey,
           onKeyPress: this.handleKeyPress,
           contentEditable: 'true',
-          placeholder: 'Write a reply...',
+          placeholder: this.props.placeholder,
           className: 'sc-user-input--text'
         }),
         React.createElement(
@@ -166,8 +167,8 @@ UserInput.propTypes = process.env.NODE_ENV !== "production" ? {
 } : {};
 
 UserInput.defaultProps = {
-  showEmoji: true,
-  showFile: true
+  showEmoji: false,
+  showFile: false
 };
 
 export default UserInput;

@@ -35,12 +35,20 @@ var ChatWindow = function (_Component) {
     return React.createElement(
       'div',
       { className: classList.join(' ') },
+      this.props.agentProfile && React.createElement(Header, {
+        teamName: this.props.agentProfile.teamName,
+        imageUrl: this.props.agentProfile.imageUrl,
+        onClose: this.props.onClose
+      }),
       React.createElement(MessageList, {
         messages: messageList,
-        imageUrl: this.props.agentProfile.imageUrl,
-        onDelete: this.props.onDelete
+        imageUrl: this.props.agentProfile ? this.props.agentProfile.imageUrl : '',
+        onDelete: this.props.onDelete,
+        more: this.props.more,
+        moreEl: this.props.moreEl
       }),
       React.createElement(UserInput, {
+        placeholder: this.props.userInputPlaceholder,
         showEmoji: this.props.showEmoji,
         onSubmit: this.onUserInputSubmit,
         showFile: this.props.showFile,
